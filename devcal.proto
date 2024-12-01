@@ -13,28 +13,28 @@ service EventsService {
 }
 
 message InsertEventParams {
-	google.protobuf.Timestamp Dtstart = 1;
-	google.protobuf.Timestamp Dtend = 2;
-	optional string rrule = 3;
-	optional bytes props = 4;
+	string Dtstart = 1;
+	string Dtend = 2;
+	optional string Rrule = 3;
+	optional bytes Props = 4;
 }
 
 message GetEventParams {
-	string id = 1;
+	string ID = 1;
 }
 
 message ListEventsParams {
-	google.protobuf.Timestamp date = 1;
-	string period = 2;
-	optional bytes props= 3;
+	string Date = 1;
+	string Period = 2;
+	optional bytes Props= 3;
 }
 
 message Event {
-	string id = 1;
-	string account_id = 2;
+	string ID = 1;
+	string AccountID = 2;
 	google.protobuf.Timestamp Dtstart = 3;
 	google.protobuf.Timestamp Dtend = 4;
-	string rrule = 5;
-	bytes props = 6;
+	string Rrule = 5;
+	bytes Props = 6;
 }
 

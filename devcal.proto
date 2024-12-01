@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "devcal/rpc";
+
+package devcal;
+
+service EventsService {
+	rpc InsertEvent (InsertEventParams) returns (Event) {}
+	rpc GetEvent (GetEventParams) returns (Event) {}
+	rpc ListEvents (ListEventsParams) returns (stream Event) {}
+}
+
+message InsertEventParams {
+	google.protobuf.Timestamp Dtstart = 1;
+	google.protobuf.Timestamp Dtend = 2;
+	optional string rrule = 3;
+	optional bytes props = 4;
+}
+
+message GetEventParams {
+	string id = 1;
+}
+
+message ListEventsParams {
+	google.protobuf.Timestamp date = 1;
+	string period = 2;
+	optional bytes props= 3;
+}
+
+message Event {
+	string id = 1;
+	string account_id = 2;
+	google.protobuf.Timestamp Dtstart = 3;
+	google.protobuf.Timestamp Dtend = 4;
+	string rrule = 5;
+	bytes props = 6;
+}
+

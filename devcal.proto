@@ -11,6 +11,7 @@ service EventsService {
 	rpc InsertEvent (InsertEventParams) returns (Event) {}
 	rpc GetEvent (GetEventParams) returns (Event) {}
 	rpc ListEvents (ListEventsParams) returns (stream Event) {}
+	rpc FindEvents (FindEventsParams) returns (stream Event) {}
 	rpc UpdateEvent (UpdateEventParams) returns (google.protobuf.Empty) {}
 	rpc DeleteEvent (DeleteEventParams) returns (google.protobuf.Empty) {}
 }
@@ -30,6 +31,10 @@ message ListEventsParams {
 	string Date = 1;
 	string Period = 2;
 	optional bytes Props= 3;
+}
+
+message FindEventsParams {
+	optional bytes Props= 1;
 }
 
 message UpdateEventParams {

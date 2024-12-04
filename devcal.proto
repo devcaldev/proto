@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
 
 option go_package = "devcal/rpc";
 
@@ -10,6 +11,8 @@ service EventsService {
 	rpc InsertEvent (InsertEventParams) returns (Event) {}
 	rpc GetEvent (GetEventParams) returns (Event) {}
 	rpc ListEvents (ListEventsParams) returns (stream Event) {}
+	rpc UpdateEvent (UpdateEventParams) returns (google.protobuf.Empty) {}
+	rpc DeleteEvent (DeleteEventParams) returns (google.protobuf.Empty) {}
 }
 
 message InsertEventParams {
@@ -27,6 +30,18 @@ message ListEventsParams {
 	string Date = 1;
 	string Period = 2;
 	optional bytes Props= 3;
+}
+
+message UpdateEventParams {
+	string ID = 1;
+	optional string Dtstart = 2;
+	optional string Dtend = 3;
+	optional string Rrule = 4;
+	optional bytes Props = 5;
+}
+
+message DeleteEventParams {
+	string ID = 1;
 }
 
 message Event {

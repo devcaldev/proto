@@ -11,14 +11,13 @@ service EventsService {
 	rpc InsertEvent (InsertEventParams) returns (Event) {}
 	rpc GetEvent (GetEventParams) returns (Event) {}
 	rpc ListEvents (ListEventsParams) returns (stream Event) {}
-	rpc FindEvents (FindEventsParams) returns (stream Event) {}
 	rpc UpdateEvent (UpdateEventParams) returns (google.protobuf.Empty) {}
 	rpc DeleteEvent (DeleteEventParams) returns (google.protobuf.Empty) {}
 }
 
 message InsertEventParams {
-	string Dtstart = 1;
-	string Dtend = 2;
+	google.protobuf.Timestamp Dtstart = 1;
+	google.protobuf.Timestamp Dtend = 2;
 	optional string Rrule = 3;
 	optional bytes Props = 4;
 }
@@ -27,20 +26,20 @@ message GetEventParams {
 	string ID = 1;
 }
 
-message ListEventsParams {
-	string Date = 1;
+message ListEventsRange {
+	google.protobuf.Timestamp Date = 1;
 	string Period = 2;
-	optional bytes Props= 3;
 }
 
-message FindEventsParams {
-	optional bytes Props= 1;
+message ListEventsParams {
+	optional ListEventsRange Range = 1;
+	optional bytes Props= 3;
 }
 
 message UpdateEventParams {
 	string ID = 1;
-	optional string Dtstart = 2;
-	optional string Dtend = 3;
+	optional google.protobuf.Timestamp Dtstart = 2;
+	optional google.protobuf.Timestamp Dtend = 3;
 	optional string Rrule = 4;
 	optional bytes Props = 5;
 }

@@ -19,7 +19,7 @@ message InsertEventParams {
 	google.protobuf.Timestamp Dtstart = 1;
 	google.protobuf.Timestamp Dtend = 2;
 	optional string Rrule = 3;
-	optional bytes Props = 4;
+	optional string Props = 4;
 }
 
 message GetEventParams {
@@ -33,7 +33,7 @@ message ListEventsRange {
 
 message ListEventsParams {
 	optional ListEventsRange Range = 1;
-	optional bytes Props= 3;
+	optional string Props= 3;
 }
 
 message UpdateEventParams {
@@ -41,7 +41,7 @@ message UpdateEventParams {
 	optional google.protobuf.Timestamp Dtstart = 2;
 	optional google.protobuf.Timestamp Dtend = 3;
 	optional string Rrule = 4;
-	optional bytes Props = 5;
+	optional string Props = 5;
 }
 
 message DeleteEventParams {
@@ -54,6 +54,6 @@ message Event {
 	google.protobuf.Timestamp Dtstart = 3;
 	google.protobuf.Timestamp Dtend = 4;
 	string Rrule = 5;
-	bytes Props = 6;
+	string Props = 6;
 }
 

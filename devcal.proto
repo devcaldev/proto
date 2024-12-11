@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
 
 option go_package = "devcal/rpc";
 
@@ -19,7 +20,7 @@ message InsertEventParams {
 	google.protobuf.Timestamp Dtstart = 1;
 	google.protobuf.Timestamp Dtend = 2;
 	optional string Rrule = 3;
-	optional string Props = 4;
+	optional google.protobuf.Struct Props = 4;
 }
 
 message GetEventParams {
@@ -33,7 +34,7 @@ message ListEventsRange {
 
 message ListEventsParams {
 	optional ListEventsRange Range = 1;
-	optional string Props= 3;
+	optional google.protobuf.Struct Props= 3;
 }
 
 message UpdateEventParams {
@@ -41,7 +42,7 @@ message UpdateEventParams {
 	optional google.protobuf.Timestamp Dtstart = 2;
 	optional google.protobuf.Timestamp Dtend = 3;
 	optional string Rrule = 4;
-	optional string Props = 5;
+	optional google.protobuf.Struct Props = 5;
 }
 
 message DeleteEventParams {
@@ -54,6 +55,6 @@ message Event {
 	google.protobuf.Timestamp Dtstart = 3;
 	google.protobuf.Timestamp Dtend = 4;
 	string Rrule = 5;
-	string Props = 6;
+	google.protobuf.Struct Props = 6;
 }
 

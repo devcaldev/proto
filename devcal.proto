@@ -17,44 +17,44 @@ service EventsService {
 }
 
 message InsertEventParams {
-	google.protobuf.Timestamp Dtstart = 1;
-	google.protobuf.Timestamp Dtend = 2;
-	optional string Rrule = 3;
-	optional google.protobuf.Struct Props = 4;
+	google.protobuf.Timestamp dtstart = 1;
+	google.protobuf.Timestamp dtend = 2;
+	optional string rrule = 3;
+	optional google.protobuf.Struct props = 4;
 }
 
 message GetEventParams {
-	string ID = 1;
+	string id = 1;
 }
 
 message ListEventsRange {
-	google.protobuf.Timestamp Date = 1;
-	string Period = 2;
+	google.protobuf.Timestamp date = 1;
+	string period = 2;
 }
 
 message ListEventsParams {
-	optional ListEventsRange Range = 1;
-	optional google.protobuf.Struct Props= 3;
+	optional ListEventsRange range = 1;
+	optional google.protobuf.Struct props= 3;
 }
 
 message UpdateEventParams {
-	string ID = 1;
-	optional google.protobuf.Timestamp Dtstart = 2;
-	optional google.protobuf.Timestamp Dtend = 3;
-	optional string Rrule = 4;
-	optional google.protobuf.Struct Props = 5;
+	string id = 1;
+	optional google.protobuf.Timestamp dtstart = 2;
+	optional google.protobuf.Timestamp dtend = 3;
+	optional string rrule = 4;
+	optional google.protobuf.Struct props = 5;
 }
 
 message DeleteEventParams {
-	string ID = 1;
+	string id = 1;
 }
 
 message Event {
-	string ID = 1;
-	string AccountID = 2;
-	google.protobuf.Timestamp Dtstart = 3;
-	google.protobuf.Timestamp Dtend = 4;
-	string Rrule = 5;
-	google.protobuf.Struct Props = 6;
+	string id = 1;
+	string account_id = 2;
+	google.protobuf.Timestamp dtstart = 3;
+	google.protobuf.Timestamp dtend = 4;
+	string rrule = 5;
+	google.protobuf.Struct props = 6;
 }
 
